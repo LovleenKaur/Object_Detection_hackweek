@@ -14,6 +14,10 @@ limit = int(sys.argv[2])
 
 
 def fetch_image_urls(query: str, max_links_to_fetch: int, wd: webdriver, sleep_between_interactions: int = 1):
+    DRIVER_PATH = '/usr/local/bin/chromedriver'
+    wd = webdriver.Chrome(executable_path=DRIVER_PATH)
+    wd.get('https://google.com')
+
     def scroll_to_end(wd):
         for _ in range(1000):
             wd.execute_script("window.scrollTo(0, 1000000);")
